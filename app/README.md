@@ -81,7 +81,12 @@ __Don't forget to change the configuration of `.env.production` if required.__
 npm run build:frontend  # runs build and export static pages, which ignores api routes.
                         # generates static export under /out
 ```
-Next step would be to serve the exported static html with your preferred hosting service, such as nginx, github pages, express, etc.
+Afterwards, serve the frontend, e.g., using nginx:
+```bash
+docker run -d -p 80:80 \
+	--name nginx-container \
+	-v $(pwd)/out:/usr/share/nginx/html/lu-lvb-JourneyPlanner:ro nginx
+```
 
 ### Accessing pages
 
